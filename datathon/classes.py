@@ -17,7 +17,4 @@ class Prenda:
 class Outfit:
     def __init__(self, outfit):
         self.cod_outfit = outfit
-        self.prendas = dict()
-
-    def addPrenda(self, clau, prenda):
-        self.prendas[clau] = prenda
+        self.prendas = {}
