@@ -17,6 +17,6 @@ def load_and_preprocess_image(img_path, target_size=(224, 224)): #returns the im
     return img_array
 
 
-
-processed_image = load_and_preprocess_image('datathon/images/2019_43040692_OR.jpg' )
+img_path = 'datathon/images/2019_43040692_OR.jpg'
+processed_image = load_and_preprocess_image(img_path)
 print(processed_image)
