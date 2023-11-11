@@ -20,4 +20,4 @@ class Outfit:
         self.prendas = dict()
 
     def addPrenda(self, clau, prenda):
-        self.prendas[clau] = Prenda(prenda)
+        self.prendas[clau] = prenda
