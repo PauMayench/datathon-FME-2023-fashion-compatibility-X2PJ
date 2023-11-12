@@ -31,8 +31,6 @@ Before running the code, ensure that you have the following prerequisites instal
 - Customtkinter library
 - Pillow Library
 
-Install the required Python packages:
-`pip install -r requirements.txt`
 
 ### Installation
 Clone the repository to your local machine:
@@ -40,6 +38,9 @@ Clone the repository to your local machine:
 
 Navigate to the project directory:
 `cd datathon-FME-2023-fashion-compatibility-X2PJ`
+
+Install the required Python packages:
+`pip install -r requirements.txt`
 
 
 ### Usage
