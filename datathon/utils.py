@@ -104,11 +104,11 @@ def productFilter(product_list):
 		elif product.des_product_category == "Bottoms":
 			bottom.append(product)
 		elif product.des_product_category == "Dresses, jumpsuits and Complete set":
-			bottom.append(product)
+			bottom.append(product)	
+		elif product.des_product_category == "Beauty" or product.des_product_category == "Home":
+			pass
 		else:
 			others.append(product)
-
-		
 	return top, bottom, dresses, others
 
 #recieves a list of products and returns n lists of products on a list,they are the possible outfits

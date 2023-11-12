@@ -6,7 +6,7 @@ import os
 import cv2
 
 
-MAX_SAMPLES = 40000 # change this variable to 4000 or 2000
+MAX_SAMPLES = 10000 # change this variable to 4000 or 2000
 
 ''' This script creates and trains a convolutional neural network using TensorFlow. 
  It processes image data from two categories, trains the model, and then saves it.
