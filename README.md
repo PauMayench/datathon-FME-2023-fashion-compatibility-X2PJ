@@ -56,10 +56,13 @@ You can train the model by following the steps:
 
 To generate the training samples run:
 `python3 MakeNeuralNetworkInput.py`
+>[!NOTE]
+>It can take a little long
 
 To train the model on the generated data simply run:
 `python3 NeuralNetworkTraining.py`
-WARNING: you have to have some free RAM on your laptop on the moment of execution, on our tests we needed at least 12G, if your training fails you can go inside the code and change the variable MAX_SAMPLES to smaller values like 4000 or 2000, the model will be trained with less data
+>[!WARNING]
+>You have to have some free RAM on your laptop on the moment of execution, on our tests we needed at least 12G, if your training fails you can go inside the code and change the variable MAX_SAMPLES to smaller values like 4000 or 2000, the model will be trained with less data
 
 
 ## Data Structure
