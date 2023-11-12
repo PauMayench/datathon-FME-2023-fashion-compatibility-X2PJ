@@ -33,8 +33,7 @@ if not os.path.exists("class2"):
 
 #Generating "good" outfits
 for outfit in dict_outfits.values():		#for each outfit we create an image so we can train the model
-	break
-	prendas = outfit.products.values()
+	prendas = outfit.products
 	outfitId = outfit.cod_outfit
 	generateAndSave(prendas, outfitId, 1)
 
