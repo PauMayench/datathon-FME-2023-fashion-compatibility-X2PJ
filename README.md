@@ -18,7 +18,7 @@ This model is able to tell, given an outfit, the degree of compatibility between
 Then we implemented a gui where you can generate outfits, each time you press the button "generate outfit" it creates 20 random outfits, each of them is given to the trained model and it returns the respective compatibility, if the best one is over a certain threshold we show it to the user, if not, we call the function again.
 
 
-![Product1](resources/exemple_outfit_gui.jpg)
+![Product1](resources/exemple_outfit_gui.png)
 
 ## Getting Started
 
