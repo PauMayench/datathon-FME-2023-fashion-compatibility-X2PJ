@@ -29,7 +29,7 @@ def get_random_good_outfit(model, dict_prendas):
 	r = list(model.predict(inputs_nn, verbose = 0))
 
 	for i in range(len(r)):
-		if (r[i][0] > 0.8):
+		if (r[i][0] > 0.95):
 			r[i] = 0
 		else:
 			r[i] = 1
@@ -49,7 +49,7 @@ def get_product_image(nom_producte):
 
 def processar_imatge_per_CTK(img, ampl): # Passa d'imatge normal (per exemple cv2) a una versio compatible amb CTKinter. Necessita de input una imatge i la amplada de la finestra
 	mides = img.shape
-
+	img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 	img = Image.fromarray(img)
 	img = ctk.CTkImage(img, size=(ampl, mides[0]/mides[1]*ampl))
 
