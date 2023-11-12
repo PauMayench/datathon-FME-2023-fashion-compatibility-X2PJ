@@ -10,7 +10,7 @@ We adopted a convolutional neural network approach, where given some outfits on 
 ![Product1](resources/2019_53023770_04.jpg)
 ![Product1](resources/2019_57095923_CU.jpg)
 
-============================================================================
+===================================================
 ![Final Outfit](resources/156.jpg)
 
 This model is able to tell, given an outfit, the degree of compatibility between the fashon products 
@@ -27,7 +27,7 @@ Before running the code, ensure that you have the following prerequisites instal
 - Python 3.x
 - OpenCV library
 - NumPy library
-- TensorFlow library (if using machine learning models)
+- TensorFlow library
 - Customtkinter library
 - Pillow Library
 
@@ -49,15 +49,15 @@ unzip the folder inside datathon images.zip with:
 unzip datathon/images.zip datathon/images
 
 Now you can execute the gui with:
-python gui.py
+python3 gui.py
 
 You can train the model by following the steps:
 
 To generate the training samples run:
-python3 NeuralNetworkTraining.py
-
-To train the model simply run:
 python3 MakeNeuralNetworkInput.py
+
+To train the model on the generated data simply run:
+python3 NeuralNetworkTraining.py
 WARNING: you have to have some free RAM on your laptop on the moment of execution, on our tests we needed at least 12G, if your training fails you can go inside the code and change the variable MAX_SAMPLES to smaller values like 4000 or 2000, the model will be trained with less data
 
 
