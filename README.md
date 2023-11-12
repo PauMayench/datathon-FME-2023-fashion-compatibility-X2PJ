@@ -1,58 +1,46 @@
-# UPC Datathon 2023
-# Fashion Compatibility Challenge <img src="resources/icon.png" align="right" height=100/>
+# UPC Datathon 2023 - Fashion Compatibility Challenge
 
 ## Overview
+In the Fashion Compatibility Challenge, participants are tasked with creating a model that can generate compatible outfit recommendations from a given initial product. Fashion matching is a nuanced task, often going beyond metadata to include intricate patterns and visual details that contribute to the compatibility of clothing items.
 
-<img src="resources/outfit.png">
+![Final Outfit](resources/156.jpg)
 
-This challenge aims to create a model capable of generating outfit recommendations based on a given initial product. Fashion matching is complex due to the nuanced patterns and visual details that dictate whether products pair well together, often going beyond mere product metadata. For instance, it's not straightforward to determine if a violet satin dress, white sandals, and a silver chic bag make a good outfit without seeing the items.
- 
-The essence of a good outfit often lies in the complementary nature of different products rather than their similarity. The task here is to extract and model these visual features to predict matching products effectively. One approach to address this is the "Fill in the Blank" task, where the goal is to predict a missing item in a given outfit from a list of candidate products. This task serves as a stepping stone towards generating complete outfits from a single product. However, participants are encouraged to explore other innovative solutions to this challenge as well.
- 
-Participants will have the opportunity to work with real outfits curated by stylists and fashion experts at MANGO and exhibit their proficiency in navigating a software development environment while adhering to strict deadlines and maintaining performance under a high-pressure scenario.
+The challenge focuses on the complementary aspects of fashion items to form aesthetically pleasing ensembles. A specific task, "Fill in the Blank," involves predicting a missing item from a set of candidate products to complete an outfit. This task is a crucial step toward the broader goal of creating entire outfits based on single product inputs. We encourage participants to explore various innovative approaches to tackle the challenge.
 
-## Brief Data Overview
-Participants will access two datasets and images.
+Participants will handle real outfits curated by stylists and fashion experts from MANGO, showcasing their skills in software development within a competitive environment and under tight deadlines.
 
-1. **Product Data (`product_data.csv`)**: This dataset includes comprehensive attributes of fashion items such as identifiers, colors, materials, product types, and the file path to the associated image.
-2. **Outfit Data (`outfit_data.csv`)**: Contains links between fashion items and outfits, identifying which items are paired together.
-Both datasets provide a wealth of features to analyze fashion item characteristics and their combinations in outfits. Refer to the [Dataset description](datathon/dataset/dataset_description.md) for detailed information on dataset fields, dataset relationships and how to download the data.
+## Getting Started
+
+### Prerequisites
+Before running the code, ensure that you have the following prerequisites installed:
+- Python 3.x
+- OpenCV library
+- NumPy library
+- TensorFlow library (if using machine learning models)
+
+Install the required Python packages:
+pip install -r requirements.txt
+
+### Installation
+Clone the repository to your local machine:
+git clone https://github.com/PauMayench/datathon-FME-2023-fashion-compatibility-X2PJ.git
+
+Navigate to the project directory:
+cd datathon-FME-2023-fashion-compatibility-X2PJ
 
 
 
-## Objectives
-* Develop a model to effectively predict matching products based on tabular/visual features.
-* Exhibit creativity in approaching the fashion compatibility challenge.
-* Demonstrate the applicability and scalability of the proposed solution through a proof-of-concept.
- 
-## Evaluation
-While the evaluation will not follow a specific performance metric, evaluation will be based on:
 
-1. A 10-minute elevator pitch, showcasing their proof-of-concept to a panel of experts with diverse experience in data science, machine learning, and fashion. Teams are expected to present at least 5 newly created outfits based on the given products in the dataset. The evaluation will focus on the creativity, complexity, applicability of the proposed solution and the team's communication abilities.
-2. The team's Github repository - showcasing:
-   - Code quality
-   - Documentation 
-   - Use of Version Control & Branching strategies
- 
-## Considerations
-* Enough time should be allocated for the final presentation as effective communication is crucial for this challenge. Preparing a demo or utilizing a UI like [Streamlit](https://streamlit.io/) can significantly aid in demonstrating your proof-of-concept.
-* Participants are free to enrich the dataset with external resources; however, pay attention to the licenses of data and/or models you utilize.
+### Usage
+To generate outfits and save them to the designated class directories, run:
+python outfit_generator.py
 
-## Get started
-1. Fork this [Github Datathon Challenge](https://github.com/data-science-mango/datathon-2023-fashion-compatibility) repository
-2. Download the data as a `.zip` file from the following [link](https://mng-datathon-upc.s3.eu-west-1.amazonaws.com/datathon.zip) and unzip it in the forked repository
-3. Read the [Dataset description](datathon/dataset/dataset_description.md)
+## Data Structure
+The dataset consists of images categorized into different classes. The 'class1' directory contains images of 'good' outfits, while 'class2' houses 'bad' outfits generated with certain constraints.
 
-## Who we are
-With a rich legacy rooted in Barcelona, MANGO captivates the global fashion scene through its innovative blend of design and technology, offering a seamless fusion of online and in-store shopping experiences across over 115 markets, embodying the essence of taking fashion further.
+## Model Training
+The provided Python script reads image data, preprocesses it, and fits it to a convolutional neural network model. The model is then saved and evaluated against a test set.
 
-## Organizing Committee
-- Andrea Coloma
-- Cristina Ruiz-Larrea
-- Adrian Martinez Lopez
-- Judith Beltran Lopez
-- Sandra Millet Salvador
-- Lucas Anton Pastur
-- Matthias Brenninkmeijer
+## Acknowledgments
+- Thanks to MANGO for providing the expertly curated outfit data.
 
-Best of luck, and happy coding!

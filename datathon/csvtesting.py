@@ -7,6 +7,7 @@ base_path = "dataset/"
 product_data = pd.read_csv(base_path+"product_data.csv", sep=',', header=0)
 outfit_data = pd.read_csv(base_path+"outfit_data.csv", sep=',', header=0)
 
+'''
 
 category_list = []
 aggregated_family_list = []
@@ -28,13 +29,19 @@ print(general_list)
 
 '''
 keys = [
-"57074037-98"]
+"53003778-OR",
+"53023716-07",
+"53023770-04",
+"57095923-CU",
+"51030857-20",
+"53033714-06"]
 
 model = []
 for index, row in product_data.iterrows():
     
     if row['cod_modelo_color'] in keys:
         model.append(row['des_filename'])
-        '''
+        
 
-#pprint.pprint(model)
+pprint.pprint(model)
+
