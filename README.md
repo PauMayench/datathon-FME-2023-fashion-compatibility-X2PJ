@@ -48,7 +48,7 @@ Install the required Python packages:
 First of all move to the datathon directory with:
 `cd datathon`
 unzip the folder inside datathon images.zip with:
-`unzip datathon/images.zip datathon/images`
+`unzip datathon/images.zip -d datathon/images`
 
 Now you can execute the gui with:
 `python3 gui.py`
