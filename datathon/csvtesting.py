@@ -37,4 +37,4 @@ for index, row in product_data.iterrows():
         model.append(row['des_filename'])
         '''
 
-pprint.pprint(model)
+#pprint.pprint(model)

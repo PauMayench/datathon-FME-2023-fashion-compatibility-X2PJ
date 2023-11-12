@@ -1,13 +1,16 @@
 import tensorflow as tf
 import numpy as np
 import time as t
-import random
 import os
 import cv2
 
-print("code starts")
 
-categories = ['class1', 'class2']
+'''
+this python code creates and trains a convolutional model, with the input data and stores the model on model_tensorflow
+
+'''
+
+categories = ['class1', 'class2'] # these are the two folders where we have the input of the model
 
 PATH = os.getcwd()
 
@@ -19,8 +22,9 @@ test_y = [] # array of the images' labels
 
 percentage_testing = 0.05 # percentage of the sample images that will be used only for testing
 
-max_samples_ini = 40000
+max_samples_ini = 40000 #we put a bug number so it will do all of the tests, if you run with some problems like filling up the ram, you can pitch dowwn this value, it will also reduce the training data
 max_samples = max_samples_ini
+
 # Save images from each category (class1 and class2)
 for categ in categories:
     nou_path = os.path.join(PATH, categ)
@@ -34,7 +38,8 @@ for categ in categories:
         max_samples -= 1
 
         img = cv2.imread(os.path.join(PATH, categ, path_imatge))
-        resizeFact = 2.5
+
+        resizeFact = 2.5    # we also can reduce or increment the size of the image, the higher this value, the more we reduce the sizze of each image
         img = cv2.resize(img, (int(img.shape[1]/resizeFact), int(img.shape[0]/resizeFact)))
        
         #cv2.imshow("hehe", img)
@@ -70,10 +75,10 @@ test_y = np.asarray(test_y)
 
 
 # INPUT: Matriu gran amb fotos de les prendes
+#print(train_x[0].shape)
 
-print(train_x[0].shape)
-
-model = tf.keras.models.Sequential([
+#The model declaration
+model = tf.keras.models.Sequential([ 
     tf.keras.layers.Conv2D(64, (5,5), activation = "relu", input_shape=(train_x[0].shape), padding='same'),
     tf.keras.layers.MaxPooling2D((3, 3)),
     tf.keras.layers.Conv2D(32, (5,5), activation = "relu", padding='same'),
@@ -86,7 +91,7 @@ model = tf.keras.models.Sequential([
 
 model.summary()
 
-t.sleep(3)
+t.sleep(3) # so we can read the output
 
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
