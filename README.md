@@ -9,7 +9,8 @@ We adopted a convolutional neural network approach, where given some outfits on 
 ![Product1](resources/2019_53023716_07.jpg)
 ![Product1](resources/2019_53023770_04.jpg)
 ![Product1](resources/2019_57095923_CU.jpg)
-===>
+
+============================================================================
 ![Final Outfit](resources/156.jpg)
 
 This model is able to tell, given an outfit, the degree of compatibility between the fashon products 
