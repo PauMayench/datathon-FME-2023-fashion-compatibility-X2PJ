@@ -19,8 +19,8 @@ test_y = [] # array of the images' labels
 
 percentage_testing = 0.05 # percentage of the sample images that will be used only for testing
 
-
-max_samples = 2000
+max_samples_ini = 40000
+max_samples = max_samples_ini
 # Save images from each category (class1 and class2)
 for categ in categories:
     nou_path = os.path.join(PATH, categ)
@@ -28,13 +28,17 @@ for categ in categories:
     for path_imatge in os.listdir(nou_path):
 
         if (max_samples == 0):
-            max_samples = 2000
+            max_samples = max_samples_ini
             break
 
         max_samples -= 1
 
         img = cv2.imread(os.path.join(PATH, categ, path_imatge))
-        img = cv2.resize(img, (int(img.shape[1]/4), int(img.shape[0]/4)))
+        resizeFact = 2.5
+        img = cv2.resize(img, (int(img.shape[1]/resizeFact), int(img.shape[0]/resizeFact)))
+       
+        #cv2.imshow("hehe", img)
+        #cv2.waitKey(0)
 
         count += 1
 
@@ -85,6 +89,7 @@ model.summary()
 t.sleep(3)
 
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
 
 model.fit(train_x, train_y, epochs=2, batch_size=128, verbose=1, shuffle=True)
 
