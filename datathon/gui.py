@@ -2,54 +2,62 @@ import customtkinter as ctk
 import numpy as np
 from PIL import Image
 import random
-from obtenirDades import get_dicts
 import os
 import cv2
 import tensorflow as tf
-from mixImage import list_prendas_to_input_img
+from pprint import pprint
+from utils import outfitImage, obtenirDades, generateListRandomOutfits, transformDict
 
 
-def get_random_good_outfit(model):
+def get_random_good_outfit(model, dict_prendas):
+	list_prendas = list(dict_prendas.values())
+	list_dicts_products = []
 
-	list_outfits = []
+	inputs_nn = []
 
 	# generar outfits randoms
-	for i in range(10):
-		list_prendes_outfit = get_random_outfit()
-		list_outfits.append(list_prendes_outfit)
-		list_outfits[i] = list_prendas_to_input_img(list_outfits[i])
-		cv2.imshow("test", list_outfits[i])
-		cv2.waitKey(0)
+	list_dicts_products = generateListRandomOutfits(20, list_prendas)
+	for i in range(len(list_dicts_products)):
+		img = outfitImage(list_dicts_products[i])
+		img = cv2.resize(img, (int(img.shape[1]/2), int(img.shape[0]/2)))
+		img = cv2.resize(img, (int(img.shape[1]/2.5), int(img.shape[0]/2.5)))
+		inputs_nn.append(img) #canviar a entradad dict
+	#cv2.imshow("test", list_outfits[i])
+	#cv2.waitKey(0)
 
 	# predir si son bons o dolents	
-	list_outfits = tf.data.Dataset.from_tensor_slices(imatges).batch(1)
-	resposta = list(model.predict(imatges, verbose = 0))
+	inputs_nn = tf.data.Dataset.from_tensor_slices(inputs_nn).batch(1)
+	print("acaba de tractar input")
+	r = list(model.predict(inputs_nn, verbose = 0))
 
-	for i in range(len(resposta)):
+	pprint(r)
+
+
+	for i in range(len(r)):
 		r[i] = np.argmax(r[i])
 
 		if r[i] == 0: # si es resposta bona
-			return list_outfits
+			return list_dicts_products[i]
 
-	get_random_good_outfit(model)
+	return get_random_good_outfit(model, dict_prendas)
 
 
 
 def get_random_outfit():
-	dict_prendas, dict_outfits = get_dicts()
+	dict_outfits, dict_prendas  = obtenirDades()
 
 	list_totes_prendas = list(dict_prendas.values())
 
-	list_prendes_output = []
+	product_list = []
 
 	for i in range(random.randint(2, 10)):
-		list_prendes_output.append(list_totes_prendas[random.randint(1, len(list_totes_prendas))])
+		product_list.append(list_totes_prendas[random.randint(1, len(list_totes_prendas))])
 
-	return list_prendes_output
+	return product_list
 
 
 def get_product_image(nom_producte):
-	path_img = os.path.join(os.getcwd(), "datathon", nom_producte)
+	path_img = os.path.join(os.getcwd(), nom_producte)
 
 	return cv2.imread(path_img)
 
@@ -62,15 +70,17 @@ def processar_imatge_per_CTK(img, ampl): # Passa d'imatge normal (per exemple cv
 
 	return img
 
-def funcio():
+def submitGenerarOutfit():
 	global imatges
 	global model
+	global labels
+	global dict_prendas
 
 	rand_num = random.randint(2, 10)
 
 
-	list_products_outfit = get_random_good_outfit(model)
-
+	dict_products_outfit = get_random_good_outfit(model, dict_prendas)
+	list_products_outfit = list(dict_products_outfit.values())
 
 	for i in range(10):
 
@@ -90,15 +100,26 @@ def funcio():
 		imatges[i].configure(image=img)
 
 
+def saveOutfit():
+	global labels
+
+	for i in labels:
+		text = i.cget("text")
+		if text != "":
+			print(text)
+
+
+
 model = tf.keras.models.load_model("model_tensorflow")
 
+_, dict_prendas = obtenirDades() 
 
 app = ctk.CTk()
 app.title("OUTFIT GENERATOR")
-app.geometry("740x530")
+app.geometry("740x630")
 
-app.minsize(740,530)
-app.maxsize(740,530)
+app.minsize(740,630)
+app.maxsize(740,630)
 
 frame_fotos_productes = ctk.CTkFrame(master = app, width=1920, height=1080)
 frame_fotos_productes.grid(column=0, row=0, padx= 20, pady= 20)
@@ -123,7 +144,10 @@ for i in range(10):
 
 	labels[i].grid(column=i%5, row = int(i/5)*2+1, padx=20, pady=10)
 
-boto_generar_outfit = ctk.CTkButton(app, text = "crear outfit", command=funcio)
+boto_generar_outfit = ctk.CTkButton(app, text = "crear outfit", command=submitGenerarOutfit)
 boto_generar_outfit.grid(column=0, row=1, padx= 20, pady= 20)
+
+boto_save_outfit = ctk.CTkButton(app, text = "guardar outfit", command=saveOutfit)
+boto_save_outfit.grid(column=0, row=2, padx= 20, pady= 20)
 
 app.mainloop()
