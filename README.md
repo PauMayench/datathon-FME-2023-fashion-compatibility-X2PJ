@@ -3,6 +3,7 @@
 ## Overview
 In the Fashion Compatibility Challenge, participants are tasked with creating a model that can generate outfits with compatible fashion products.
 We adopted a convolutional neural network approach, where given some outfits on the format of images and metadata we create an image like this, and feed the model with it to train it. 
+
 ![Product1](resources/2019_51030857_20.jpg)
 ![Product1](resources/2019_53003778_OR.jpg)
 ![Product1](resources/2019_53023716_07.jpg)
