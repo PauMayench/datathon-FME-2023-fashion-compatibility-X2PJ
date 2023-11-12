@@ -32,32 +32,32 @@ Before running the code, ensure that you have the following prerequisites instal
 - Pillow Library
 
 Install the required Python packages:
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ### Installation
 Clone the repository to your local machine:
-git clone https://github.com/PauMayench/datathon-FME-2023-fashion-compatibility-X2PJ.git
+`git clone https://github.com/PauMayench/datathon-FME-2023-fashion-compatibility-X2PJ.git`
 
 Navigate to the project directory:
-cd datathon-FME-2023-fashion-compatibility-X2PJ
+`cd datathon-FME-2023-fashion-compatibility-X2PJ`
 
 
 ### Usage
 First of all move to the datathon directory with:
-cd datathon
+`cd datathon`
 unzip the folder inside datathon images.zip with:
-unzip datathon/images.zip datathon/images
+`unzip datathon/images.zip datathon/images`
 
 Now you can execute the gui with:
-python3 gui.py
+`python3 gui.py`
 
 You can train the model by following the steps:
 
 To generate the training samples run:
-python3 MakeNeuralNetworkInput.py
+`python3 MakeNeuralNetworkInput.py`
 
 To train the model on the generated data simply run:
-python3 NeuralNetworkTraining.py
+`python3 NeuralNetworkTraining.py`
 WARNING: you have to have some free RAM on your laptop on the moment of execution, on our tests we needed at least 12G, if your training fails you can go inside the code and change the variable MAX_SAMPLES to smaller values like 4000 or 2000, the model will be trained with less data
 
 
