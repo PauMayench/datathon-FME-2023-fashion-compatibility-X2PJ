@@ -80,8 +80,6 @@ As of the last update, the model does not receive most of the products' metadata
 
 The two types of outfits that the model is trained to differentiate between are good outfits (given by the MANGO dataset) and almost random outfits, made by ourselves. The problem is that, by chance, some of the random outfits could actually be good, messing up the training. Instead, the model should be trained to differentiate between good outfits and bad outfits.
 
-We could train the model with some metadata that comes from the products, as we are currently not using. We could also create a better way to generate outfits that we send to train to the model as not good, because the generation is random and it could happend that they are good.
-
 
 
 ## Acknowledgments
