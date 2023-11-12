@@ -11,6 +11,7 @@ We adopted a convolutional neural network approach, where given some outfits on 
 ![Product1](resources/2019_57095923_CU.jpg)
 
 ===================================================
+
 ![Final Outfit](resources/156.jpg)
 
 This model is able to tell, given an outfit, the degree of compatibility between the fashon products 
@@ -47,7 +48,7 @@ Install the required Python packages:
 First of all move to the datathon directory with:
 `cd datathon`
 unzip the folder inside datathon images.zip with:
-`unzip datathon/images.zip datathon/images`
+`unzip datathon/images.zip -d datathon/`
 
 Now you can execute the gui with:
 `python3 gui.py`
@@ -71,17 +72,12 @@ The dataset consists of images categorized into different classes. The 'class1' 
 ## Model Training
 The provided Python script reads image data, preprocesses it, and fits it to a convolutional neural network model. The model is then saved and evaluated against a test set. 
 
-## GUI
-
-
-
-
 
 ## IMPROVEMENTS
 
 As of the last update, the model does not receive most of the products' metadata in its input, and so it does not have access to potentially important data.
 
-The two types of outfits that the model is trained to differentiate between are good outfits (given by the MANGO dataset) and almost random outfits, made by ourselves. The problem is that, by chance, some of the random outfits could actually be good, messing up the training. Instead, the model should be trained to differentiate between good outfits and bad outfits.
+The two types of outfits that the model is trained to differentiate between are good outfits (given by the MANGO dataset) and almost random outfits, made by ourselves. The problem is that, by chance, some of the random outfits could actually be good, messing up the training. Instead, the model should be trained to differentiate between good outfits and bad outfits, but we couldn't find a way to generate 100% bad outfits to use as training input.
 
 
 
