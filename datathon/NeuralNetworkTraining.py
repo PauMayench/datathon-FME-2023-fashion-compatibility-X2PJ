@@ -5,6 +5,9 @@ import time as t
 import os
 import cv2
 
+
+MAX_SAMPLES = 40000 # change this variable to 4000 or 2000
+
 ''' This script creates and trains a convolutional neural network using TensorFlow. 
  It processes image data from two categories, trains the model, and then saves it.
 '''
@@ -23,8 +26,7 @@ test_y = [] # List to store corresponding labels for testing images
 percentage_testing = 0.05
 
 # Set a limit on the number of samples to be processed
-max_samples_ini = 40000
-max_samples = max_samples_ini
+max_samples = MAX_SAMPLES
 
 # Load and process images from each category
 for categ in categories:
@@ -32,7 +34,7 @@ for categ in categories:
     count = 0
     for path_imatge in os.listdir(nou_path):
         if (max_samples == 0):
-            max_samples = max_samples_ini
+            max_samples = MAX_SAMPLES
             break
 
         max_samples -= 1
