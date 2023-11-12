@@ -18,7 +18,7 @@ This model is able to tell, given an outfit, the degree of compatibility between
 Then we implemented a gui where you can generate outfits, each time you press the button "generate outfit" it creates 20 random outfits, each of them is given to the trained model and it returns the respective compatibility, if the best one is over a certain threshold we show it to the user, if not, we call the function again.
 
 
-
+![Product1](resources/exemple_outfit_gui.jpg)
 
 ## Getting Started
 
@@ -63,7 +63,7 @@ WARNING: you have to have some free RAM on your laptop on the moment of executio
 
 
 ## Data Structure
-The dataset consists of images categorized into different classes. The 'class1' directory contains images of 'good' outfits, while 'class2' houses 'bad' outfits generated with certain constraints.
+The dataset consists of images categorized into different classes. The 'class1' directory contains images of 'good' outfits, while 'class2' houses random outfits generated with certain constraints.
 
 ## Model Training
 The provided Python script reads image data, preprocesses it, and fits it to a convolutional neural network model. The model is then saved and evaluated against a test set. 
