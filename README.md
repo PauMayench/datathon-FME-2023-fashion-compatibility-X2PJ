@@ -1,13 +1,16 @@
 # UPC Datathon 2023 - Fashion Compatibility Challenge
 
 ## Overview
-In the Fashion Compatibility Challenge, participants are tasked with creating a model that can generate compatible outfit recommendations from a given initial product. Fashion matching is a nuanced task, often going beyond metadata to include intricate patterns and visual details that contribute to the compatibility of clothing items.
-
+In the Fashion Compatibility Challenge, participants are tasked with creating a model that can generate outfits with compatible fashion products.
+We adopted a convolutional neural network approach, where given some outfits on the format of images and metadata we create an image like this, and feed the model with it to train it. 
+![Product1](resources/2019_51030857_20.jpg)
+![Product1](resources/2019_53003778_OR.jpg)
+![Product1](resources/2019_53023716_07.jpg)
+![Product1](resources/2019_53023770_04.jpg)
+![Product1](resources/2019_57095923_CU.jpg)
 ![Final Outfit](resources/156.jpg)
 
-The challenge focuses on the complementary aspects of fashion items to form aesthetically pleasing ensembles. A specific task, "Fill in the Blank," involves predicting a missing item from a set of candidate products to complete an outfit. This task is a crucial step toward the broader goal of creating entire outfits based on single product inputs. We encourage participants to explore various innovative approaches to tackle the challenge.
-
-Participants will handle real outfits curated by stylists and fashion experts from MANGO, showcasing their skills in software development within a competitive environment and under tight deadlines.
+This model is able to tell, given an outfit, the degree of compatibility between the fashon products 
 
 ## Getting Started
 
