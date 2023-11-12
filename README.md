@@ -10,7 +10,7 @@ We adopted a convolutional neural network approach, where given some outfits on 
 ![Product1](resources/2019_53023770_04.jpg)
 ![Product1](resources/2019_57095923_CU.jpg)
 
-============================================================================
+===================================================
 ![Final Outfit](resources/156.jpg)
 
 This model is able to tell, given an outfit, the degree of compatibility between the fashon products 
@@ -27,37 +27,38 @@ Before running the code, ensure that you have the following prerequisites instal
 - Python 3.x
 - OpenCV library
 - NumPy library
-- TensorFlow library (if using machine learning models)
+- TensorFlow library
 - Customtkinter library
 - Pillow Library
 
-Install the required Python packages:
-pip install -r requirements.txt
 
 ### Installation
 Clone the repository to your local machine:
-git clone https://github.com/PauMayench/datathon-FME-2023-fashion-compatibility-X2PJ.git
+`git clone https://github.com/PauMayench/datathon-FME-2023-fashion-compatibility-X2PJ.git`
 
 Navigate to the project directory:
-cd datathon-FME-2023-fashion-compatibility-X2PJ
+`cd datathon-FME-2023-fashion-compatibility-X2PJ`
+
+Install the required Python packages:
+`pip install -r requirements.txt`
 
 
 ### Usage
 First of all move to the datathon directory with:
-cd datathon
+`cd datathon`
 unzip the folder inside datathon images.zip with:
-unzip datathon/images.zip datathon/images
+`unzip datathon/images.zip datathon/images`
 
 Now you can execute the gui with:
-python gui.py
+`python3 gui.py`
 
 You can train the model by following the steps:
 
 To generate the training samples run:
-python3 NeuralNetworkTraining.py
+`python3 MakeNeuralNetworkInput.py`
 
-To train the model simply run:
-python3 MakeNeuralNetworkInput.py
+To train the model on the generated data simply run:
+`python3 NeuralNetworkTraining.py`
 WARNING: you have to have some free RAM on your laptop on the moment of execution, on our tests we needed at least 12G, if your training fails you can go inside the code and change the variable MAX_SAMPLES to smaller values like 4000 or 2000, the model will be trained with less data
 
 
@@ -74,6 +75,11 @@ The provided Python script reads image data, preprocesses it, and fits it to a c
 
 
 ## IMPROVEMENTS
+
+As of the last update, the model does not receive most of the products' metadata in its input, and so it does not have access to potentially important data.
+
+The two types of outfits that the model is trained to differentiate between are good outfits (given by the MANGO dataset) and almost random outfits, made by ourselves. The problem is that, by chance, some of the random outfits could actually be good, messing up the training. Instead, the model should be trained to differentiate between good outfits and bad outfits.
+
 We could train the model with some metadata that comes from the products, as we are currently not using. We could also create a better way to generate outfits that we send to train to the model as not good, because the generation is random and it could happend that they are good.
 
 
