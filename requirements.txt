@@ -2,3 +2,5 @@ tensorflow
 numpy
 opencv-python
 pandas
+pillow
+customtkinter

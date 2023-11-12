@@ -28,6 +28,8 @@ Before running the code, ensure that you have the following prerequisites instal
 - OpenCV library
 - NumPy library
 - TensorFlow library (if using machine learning models)
+- Customtkinter library
+- Pillow Library
 
 Install the required Python packages:
 pip install -r requirements.txt

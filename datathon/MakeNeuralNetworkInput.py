@@ -2,7 +2,6 @@ import cv2
 import os
 import numpy as np
 import random
-from pprint import pprint
 
 
 from classes import Product

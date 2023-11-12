@@ -5,7 +5,6 @@ import random
 import os
 import cv2
 import tensorflow as tf
-from pprint import pprint
 from utils import outfitImage, obtenirDades, generateListRandomOutfits, transformDict
 
 
@@ -29,8 +28,6 @@ def get_random_good_outfit(model, dict_prendas):
 	inputs_nn = tf.data.Dataset.from_tensor_slices(inputs_nn).batch(1)
 	print("acaba de tractar input")
 	r = list(model.predict(inputs_nn, verbose = 0))
-
-	pprint(r)
 
 
 	for i in range(len(r)):
